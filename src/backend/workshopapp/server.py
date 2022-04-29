@@ -36,7 +36,7 @@ class SocketServerHandler(BaseHTTPRequestHandler):
         
 
 class SocketServerTipOfTheDayServer(TipOfTheDayServer):
-    def __init__(self, tip_source: TipOfTheDaySource, port: int=8080, listener_address: str='0.0.0.0') -> None:
+    def __init__(self, tip_source: TipOfTheDaySource, port: int=1337, listener_address: str='0.0.0.0') -> None:
         handler_class = partial(
             SocketServerHandler,
             tip_source=tip_source,
