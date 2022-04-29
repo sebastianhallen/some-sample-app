@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function updateTip(tip) {
+                console.log(tip);
+                const p = document.querySelector('[id="tip"] p');
+                p.textContent = tip
+            }
+
+            function getNextTip() {
+                return fetch('http://localhost:8080')
+                    .then(response => response.json())
+                    .then(data => updateTip(data.tipOfTheDay))
+                    .catch(error => {
+                        console.error(error);
+                        updateTip('Get it running');
+                    });
+            }
+
+            getNextTip();
+        </script>
+    </head>
+    <body>
+        <h1>Tip of the day</h1>
+        <div id="tip">
+            <p></p>
+        </div>
+    </body>
+</html>
