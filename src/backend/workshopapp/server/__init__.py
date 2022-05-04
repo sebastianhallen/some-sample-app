@@ -17,6 +17,10 @@ class SocketServerHandler(BaseHTTPRequestHandler):
         super().__init__(*args, **kwargs)
 
     def do_GET(self):
+        """
+            For any GET request, serve a tip of the day from the tip of the day source
+            Path does not matter.
+        """
         tips = self.tip_source.tips()
         tip = random.choice(tips)
 
