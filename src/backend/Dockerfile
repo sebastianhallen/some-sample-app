@@ -7,5 +7,4 @@ RUN pip install -r requirements.txt
 RUN chown -R nobody:nogroup /app
 
 USER nobody
-ENTRYPOINT ["python"]
-CMD ["/app/serve.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "1337"]
