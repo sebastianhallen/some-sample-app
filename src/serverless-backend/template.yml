@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Fancy 1337
+
+Resources:
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionUrlConfig:
+        AuthType: NONE
+      CodeUri: api-function
+      Handler: src.handler
+      Runtime: python3.9
+
+Outputs:
+  FunctionUrl:
+    Description: URL of the Function
+    Value: !GetAtt ApiFunctionUrl.FunctionUrl

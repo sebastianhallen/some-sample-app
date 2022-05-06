@@ -1,0 +1,6 @@
+mangum
+fastapi
+pydantic
+py-trello
+aws-lambda-powertools
+
