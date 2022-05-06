@@ -1,7 +1,9 @@
 import random
 from os import environ
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from workshopapp.tipoftheday import StaticTipOfTheDaySource
+
 
 
 def create_s3_tip_source(bucket):
@@ -38,7 +40,20 @@ def get_tip_source():
     return StaticTipOfTheDaySource()
 
 
+origins = [
+    "*",
+]
+
+
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 tip_source = get_tip_source()
 
 
