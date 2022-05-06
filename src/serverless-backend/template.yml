@@ -8,6 +8,11 @@ Resources:
     Properties:
       FunctionUrlConfig:
         AuthType: NONE
+        Cors:
+          AllowOrigins:
+            - "*"
+          AllowMethods:
+            - "*"
       CodeUri: api-function
       Handler: src.handler
       Runtime: python3.9
